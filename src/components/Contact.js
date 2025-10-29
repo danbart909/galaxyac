@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Typography, TextField, Button, Grid } from '@mui/material'
+import emailjs from "emailjs-com"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,87 +15,92 @@ export default function Contact() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Here you can integrate an email service or backend API
-    alert('Thank you! Your message has been submitted.')
-    setFormData({ name: '', email: '', phone: '', message: '' })
-  }
+  e.preventDefault();
+
+  emailjs.send(
+    "YOUR_SERVICE_ID",
+    "YOUR_TEMPLATE_ID",
+    formData,
+    "YOUR_PUBLIC_KEY"
+  )
+  .then(() => {
+    alert("Thank you! Your message has been sent successfully.");
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  })
+  .catch((error) => {
+    console.error("Email sending error:", error);
+    alert("Oops! Something went wrong. Please try again.");
+  });
+};
 
   return (
-    <Box
-      sx={{
-        minHeight: '80vh',
-        py: 8,
-        px: 3,
-        maxWidth: 800,
-        mx: 'auto'
-      }}
-    >
-      <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
-        Contact Us
-      </Typography>
+  <Box
+    sx={{
+      minHeight: '80vh',
+      py: 8,
+      px: 3,
+      maxWidth: 600,
+      mx: 'auto'
+    }}
+  >
+    <Typography variant="h4" fontWeight="bold" textAlign="center" mb={4}>
+      Contact Us
+    </Typography>
 
-      <form onSubmit={handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
+    <form onSubmit={handleSubmit}>
+      <TextField
+        fullWidth
+        label="Name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        sx={{ mb: 3 }}
+      />
 
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
+      <TextField
+        fullWidth
+        label="Email"
+        name="email"
+        type="email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        sx={{ mb: 3 }}
+      />
 
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </Grid>
+      <TextField
+        fullWidth
+        label="Phone"
+        name="phone"
+        value={formData.phone}
+        onChange={handleChange}
+        sx={{ mb: 3 }}
+      />
 
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Message"
-              name="message"
-              multiline
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-          </Grid>
+      <TextField
+        fullWidth
+        label="Message"
+        name="message"
+        multiline
+        rows={8}
+        value={formData.message}
+        onChange={handleChange}
+        required
+        sx={{ mb: 4 }}
+      />
 
-          <Grid item xs={12} textAlign="center">
-            <Button
-              variant="contained"
-              color="primary"
-              type="submit"
-              sx={{ px: 5, py: 1.5, fontWeight: 'bold' }}
-            >
-              Submit
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
-    </Box>
-  )
+      <Box textAlign="center">
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          sx={{ px: 6, py: 1.6, fontWeight: 'bold' }}
+        >
+          Submit
+        </Button>
+      </Box>
+    </form>
+  </Box>
+)
 }

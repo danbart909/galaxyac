@@ -19,7 +19,7 @@ export default function Footer() {
         {/* Column 1 — Logo */}
         <Grid item xs={12} sm={4} textAlign="center">
           <Typography variant="h6" fontWeight="bold">
-            Pro Air Tech
+            GalaxyAC
           </Typography>
           <Typography variant="body2">Heating & Cooling</Typography>
         </Grid>
@@ -64,7 +64,7 @@ export default function Footer() {
           </Typography>
 
           <Link
-            href="tel:1234567890"
+            href="tel:6788982477"
             underline="none"
             sx={{
               display: 'flex',
@@ -76,14 +76,14 @@ export default function Footer() {
               fontSize: '18px'
             }}
           >
-            <PhoneIcon /> 123-456-7890
+            <PhoneIcon /> 678-898-2477
           </Link>
         </Grid>
       </Grid>
 
       {/* Bottom Bar */}
       <Box mt={4} textAlign="center" fontSize="12px" opacity={0.7}>
-        © {new Date().getFullYear()} Pro Air Tech — All Rights Reserved
+        © {new Date().getFullYear()} GalaxyAC — All Rights Reserved
       </Box>
     </Box>
   );

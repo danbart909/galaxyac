@@ -26,7 +26,12 @@ export default function App() {
             <Footer />
           </ThemeProvider>
         } />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact" element={
+          <ThemeProvider theme={theme}>
+            <Header />
+            <Contact />
+          </ThemeProvider>
+        } />
       </Routes>
     </Router>
   )
