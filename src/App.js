@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Row, Col, Title, TitleBox } from './modules/helper.js'
+import Header from './components/Header.js'
+import Hero from './components/Hero.js'
+import Services from './components/Services.js'
+import Testimonials from './components/Testimonials.js'
+import Footer from './components/Footer.js'
+import About from './components/About.js'
+import { CssBaseline } from "@mui/material"
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <Header />
+      <Hero />
+      <Services />
+      <About />
+      <Testimonials />
+      <Footer />
+    </>
   );
 }
-
-export default App;
