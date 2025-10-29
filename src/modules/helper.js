@@ -2,15 +2,15 @@ import React from 'react'
 import { Box } from '@mui/material'
 
 export const C1 = '#acccc6'
-export const C2 = '#524d5c'
+export const C2 = '#003f5c'
 
 export const Row = (props) => {
   return <Box {...props}
     display='flex'
     flexDirection='row'
     fontSize='calc(14px + 6 * ((100vw - 335px) / 1265))'
-    border='1px solid black'
-    justifyContent={'center'}
+    // border='1px solid black'
+    // justifyContent='center'
   >{props.children}</Box>
 }
 
@@ -19,7 +19,7 @@ export const Col = (props) => {
     display='flex'
     flexDirection='column'
     fontSize='calc(14px + 6 * ((100vw - 335px) / 1265))'
-    border='1px solid green'
+    // border='1px solid green'
   >{props.children}</Box>
 }
 

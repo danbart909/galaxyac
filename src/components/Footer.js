@@ -1,29 +1,90 @@
-import React from "react";
-import { Container, Typography, Box, Button, Grid } from "@mui/material";
+import { Box, Grid, Typography, Link, IconButton } from '@mui/material';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import RoomIcon from '@mui/icons-material/Room';
+import PhoneIcon from '@mui/icons-material/Phone';
+import YelpIcon from '@mui/icons-material/StarRate'; // Placeholder for Yelp icon
 
 export default function Footer() {
   return (
-    <Box component="footer" sx={{ bgcolor: "grey.900", color: "grey.100", py: 4 }}>
-      <Container maxWidth="lg">
-        <Grid container justifyContent="space-between" alignItems="center">
-          <Grid item>
-            <Typography variant="h6">Pro Air Tech, LLC</Typography>
-            <Typography variant="body2">Heating & Cooling Contractor</Typography>
-            <Typography variant="body2">Hiram, GA</Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6" gutterBottom>
-              (678) 504-5340
-            </Typography>
-            <Button href="#contact" variant="contained" color="success">
-              Contact Us Today
-            </Button>
-          </Grid>
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: '#1c3b57',
+        color: '#fff',
+        padding: '40px 20px',
+      }}
+    >
+      <Grid container spacing={4} justifyContent="center">
+        
+        {/* Column 1 — Logo */}
+        <Grid item xs={12} sm={4} textAlign="center">
+          <Typography variant="h6" fontWeight="bold">
+            Pro Air Tech
+          </Typography>
+          <Typography variant="body2">Heating & Cooling</Typography>
         </Grid>
-        <Typography variant="caption" display="block" align="center" sx={{ mt: 3 }}>
-          © 2021 Pro Air Tech, LLC
-        </Typography>
-      </Container>
+
+        {/* Column 2 — Social Links */}
+        <Grid item xs={12} sm={4} textAlign="center">
+          <Typography variant="h6" fontWeight="bold" gutterBottom>
+            Connect With Us
+          </Typography>
+
+          <Box display="flex" justifyContent="center" gap={2}>
+            <IconButton
+              href="#"
+              target="_blank"
+              sx={{ color: '#fff' }}
+            >
+              <FacebookIcon />
+            </IconButton>
+
+            <IconButton
+              href="#"
+              target="_blank"
+              sx={{ color: '#fff' }}
+            >
+              <YelpIcon />
+            </IconButton>
+
+            <IconButton
+              href="#"
+              target="_blank"
+              sx={{ color: '#fff' }}
+            >
+              <RoomIcon />
+            </IconButton>
+          </Box>
+        </Grid>
+
+        {/* Column 3 — Service Contact */}
+        <Grid item xs={12} sm={4} textAlign="center">
+          <Typography variant="h6" fontWeight="bold" gutterBottom>
+            Schedule Service Online
+          </Typography>
+
+          <Link
+            href="tel:1234567890"
+            underline="none"
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 1,
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '18px'
+            }}
+          >
+            <PhoneIcon /> 123-456-7890
+          </Link>
+        </Grid>
+      </Grid>
+
+      {/* Bottom Bar */}
+      <Box mt={4} textAlign="center" fontSize="12px" opacity={0.7}>
+        © {new Date().getFullYear()} Pro Air Tech — All Rights Reserved
+      </Box>
     </Box>
   );
 }

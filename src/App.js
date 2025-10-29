@@ -1,23 +1,33 @@
 import React from 'react';
-import { Row, Col, Title, TitleBox } from './modules/helper.js'
-import Header from './components/Header.js'
-import Hero from './components/Hero.js'
-import Services from './components/Services.js'
-import Testimonials from './components/Testimonials.js'
-import Footer from './components/Footer.js'
-import About from './components/About.js'
-import { CssBaseline } from "@mui/material"
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme.js";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import Banner from './components/Banner'
+import Info from './components/Info'
+import Banner2 from './components/Banner2'
+import Info2 from './components/Info2'
+import Footer from './components/Footer'
+import Contact from './components/Contact'
 
 export default function App() {
   return (
-    <>
-      <CssBaseline />
-      <Header />
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <Footer />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={
+          <ThemeProvider theme={theme}>
+            <Header />
+            <Hero />
+            <Banner />
+            <Info />
+            <Banner2 />
+            <Info2 />
+            <Footer />
+          </ThemeProvider>
+        } />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  )
 }
