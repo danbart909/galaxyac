@@ -15,7 +15,7 @@ export default function Header() {
         justifyContent: 'space-between',
         alignItems: 'center',
         // py: { xs: 2, md: 3 },
-        px: { xs: 2, md: 4 },
+        // px: { xs: 2, md: 4 },
         backgroundColor: '#003f5c',
         color: '#ffffff',
         gap: { xs: 1.5, md: 0 }
@@ -25,7 +25,7 @@ export default function Header() {
       <Box
         component={RouterLink}
         to="/"
-        sx={{ display: 'flex', alignItems: 'center' }}
+        sx={{ display: 'flex', alignItems: 'center', marginLeft: { xs: 0, md: "2vw" } }}
       >
         <Box
           component="img"
@@ -66,7 +66,7 @@ export default function Header() {
           justifyContent: 'center',
           alignItems: 'center',
           gap: 2,
-          marginRight: { xs: 0, md: "5vw" }
+          marginRight: { xs: 0, md: "2vw" }
         }}
       >
         <Typography variant='body2'>Open 24 Hours</Typography>
